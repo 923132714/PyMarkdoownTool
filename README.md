@@ -15,19 +15,19 @@ That is a tool that allows us to easily modify Markdown files in bulk
 
 ## 功能
 
-1. 读写front matter [x]
-    * 规范化front matter [x]
-    * 读取front matter [x]
-    * 修改front matter [x]
-    * 批量操作 [x]
-2. 修改文件名 [x]
-    * 加前后缀 [x]
-    * 时间变格式 [x]
-    * 根据front master中信息修改 [x]
-    * 批量操作 [x]
-3. 修改文件内指定部分 [x]
-    * 正则匹配 [x]
-    * 批量操作 [x]
+1. 读写front matter - [ ]
+    * 规范化front matter - [x]
+    * 读取front matter - [ ]
+    * 修改front matter - [ ]
+    * 批量操作 - [ ]
+2. 修改文件名 - [ ]
+    * 加前后缀 - [ ]
+    * 时间变格式 - [ ]
+    * 根据front master中信息修改 - [ ]
+    * 批量操作 - [ ]
+3. 修改文件内指定部分 - [ ]
+    * 正则匹配 - [ ]
+    * 批量操作 - [ ]
 
 
 ## 使用
