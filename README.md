@@ -15,18 +15,24 @@ That is a tool that allows us to easily modify Markdown files in bulk
 
 ## 功能
 
-1. 批量修改文件名 [x]
+1. 读写front matter [x]
+    * 规范化front matter [x]
+    * 读取front matter [x]
+    * 修改front matter [x]
+    * 批量操作 [x]
+2. 修改文件名 [x]
     * 加前后缀 [x]
     * 时间变格式 [x]
     * 根据front master中信息修改 [x]
-2. 修改文件内指定部分 [x]
-    * 修改ront master [x]
+    * 批量操作 [x]
+3. 修改文件内指定部分 [x]
     * 正则匹配 [x]
+    * 批量操作 [x]
 
 
 ## 使用
 
-1.  [python-frontmatter](https://github.com/eyeseast/python-frontmatter "python-frontmatter")
+1. 读写front matter [python-frontmatter](https://github.com/eyeseast/python-frontmatter "python-frontmatter")
 
 
 
