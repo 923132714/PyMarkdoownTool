@@ -176,6 +176,7 @@ class YamlFormat(object):
     def content(self,content):
         self.__content = content
 
+
 #
 # if __name__ == "__main__":
 #     path = "test.md"
