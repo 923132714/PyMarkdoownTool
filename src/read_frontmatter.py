@@ -2,9 +2,12 @@
 import frontmatter
 import logging
 import os
+
+import util
 from format_yaml import YamlFormat
 import datetime
 class MdEditor():
+
     
     def __init__ (self,path,format_yaml=True):
         '''
@@ -16,20 +19,37 @@ class MdEditor():
         if(format_yaml):
             self.format_yaml()
         self.__post = frontmatter.load(path)
-        self.__metadata = self.__post.metadata
+
         self.__content = self.__post.content
         self.__date =datetime.date.today().strftime('%Y/ %m/ %d')
+        self.__get_date()
+        self.__get_updated()
     def __get_date (self):
         '''
         获取创作时间（如果有，否则为默认值运行当天）
         :return:
         '''
         if 'date' in self.post.keys():
-            self.__date = self.post.to_dict('date')
+            self.__date = self.post.__getitem__('date')
         elif 'data' in self.post.keys():
-            self.__date = self.post.to_dict('data')
+            self.__date = self.post.__getitem__('data')
+        else:
+            return False
+        return True
+    def __get_updated (self):
+        '''
+        获取创作时间（如果有，否则为默认值运行当天）
+        :return:
+        '''
+        if 'update' in self.post.keys():
+            self.__updated = self.post.__getitem__('updated')
+        elif 'updated' in self.post.keys():
+            self.__updated = self.post.__getitem__('updated')
+        else:
+            return False
+        return True
     # def save_as (self,dir,)
-    def write_file(self,path = ""):
+    def write_file(self,path = "",post={}):
         '''
         另存为文件
         :param path:
@@ -37,22 +57,25 @@ class MdEditor():
         '''
         if path == "":
             path = self.__path
-            
-        post = self.__post
+        if post == {}:
+            post = self.post
+        if self.__date or self.__get_date():
+            post.metadata['date']=self.__date
+        if self.__updated or self.__get_updated():
+            post.metadata['updated']=self.__updated
         with open(path, 'wb+') as f :
             frontmatter.dump(post, f)
     def read_frontmatter(self, path=""):
         '''
-        读取front matter成dict，并赋值给self.yaml_data
+        读取front matter成dict，并返回yaml_data
         :param path:
         :return:
         '''
         if path == "":
             path = self.path
         post = frontmatter.load(path)
-        self.yaml_data = post.metadata
 
-        return self.yaml_data
+        return post.metadata
 
     def format_yaml(self, path=""):
         '''
@@ -100,8 +123,17 @@ class MdEditor():
 
     @property
     def metadata(self):
-        return self.__metadata
+        return self.post.metadata
+    @metadata.setter
+    def metadata(self,data):
+        self.post.metadata=data
+    @property
+    def date(self):
+        return self.__date
 
+    @date.setter
+    def date(self, date):
+        self.__date = date
 
 
 
@@ -110,14 +142,22 @@ if __name__ == "__main__":
     file = 'test.md'
     md = MdEditor(file)
     logging.basicConfig(level=logging.INFO)
-    print(md.post.to_dict())
+    print(md.metadata)
     print()
-    print(md.post.keys())
+    print(md.metadata['html'])
     print()
-    print(md.remove_yaml())
+    # print(md.to_dict())
     print()
-    print(md.post.keys())
+    # print(md.metadata.keys())
     print()
-    md.write_file(os.getcwd()+"\\test1.md")
+    # print(md.remove_yaml())
+    print()
+    data = {'hhh':'hhhhhh','hahaha':{'kkk':1,'qwqw':True}}
+    print(md.post)
+    md.metadata=data
+    print(md.metadata)
+    print()
+    date = util.date_to_str( md.date)
+    md.write_file(os.getcwd()+"\\"+ date+"-test1.md")
 
 
