@@ -51,4 +51,4 @@ That is a tool that allows us to easily modify Markdown files in bulk
 -----|--------| ---------
 v0.1 | 完成规范化front matter | 2019/ 4/ 16
 v0.2 | 完成读取front matter，删除front matter | 2019/ 06/ 06
-
+v0.3 | 修改front matter 文件名解析工具 | 2019/ 06/ 11
