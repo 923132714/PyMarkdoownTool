@@ -176,47 +176,16 @@ class YamlFormat(object):
     def content(self,content):
         self.__content = content
 
-class YamlReader(object):
-    '''
-    format_yaml :  规范化yaml。冒号前后空格，行首缩进2空格为单位。
-    
-    '''
-    def __init__(self, path=""):
-        self.__path = path
 
-    
-        
-    def read_frontmatter(self,path = ""):
-        if path == "" :
-            path = self.path
-        post = frontmatter.load(path)
-        self.yaml_data = post.metadata
-        print(self.yaml_data)
-
-    def format_yaml(self,path = "" ):
-        if path == "" :
-            path = self.path
-        yaml_format = YamlFormat(path)
-        if yaml_format.format_yaml() == None:
-            raise ValueError("Has no yaml front matter")
-        
-    @property
-    def path(self):
-        return self.__path
-    @path.setter
-    def path(self,path):
-        self.__path =  path
-        
-    @property
-    def yaml_data(self):
-        return self.__yaml_data
-    @yaml_data.setter
-    def yaml_data(self,yaml_data):
-        self.__yaml_data = yaml_data
-
-if __name__ == "__main__":
-    path = "E:/WorkSpace/page/my_blog/CSBasics/概率论与数理统计/概率论与数理统计(1).md"
-    reader = YamlReader(path)
-    logging.basicConfig(level = logging.DEBUG )
-    reader.format_yaml()
-    
+#
+# if __name__ == "__main__":
+#     path = "test.md"
+#     reader = YamlReader(path)
+#     logging.basicConfig(level=logging.DEBUG)
+#     reader.format_yaml()
+#     data = reader.read_frontmatter()
+#     print(data['data'])
+#     import util
+#
+#     date = util.date_to_str(data['data'])
+#     print(date)

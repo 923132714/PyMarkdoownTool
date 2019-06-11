@@ -16,13 +16,14 @@ That is a tool that allows us to easily modify Markdown files in bulk
 ## 功能
 
 1. 读写front matter - [ ]
-    * 规范化front matter - [x]
-    * 读取front matter - [ ]
+    * 规范化front matter - [ x ]
+    * 读取front matter - [ x ]
+	* 删除front matter - [ x ]
     * 修改front matter - [ ]
     * 批量操作 - [ ]
 2. 修改文件名 - [ ]
-    * 加前后缀 - [ ]
-    * 时间变格式 - [ ]
+    * 加前后缀 - [x]
+    * 时间变格式 - [x]
     * 根据front master中信息修改 - [ ]
     * 批量操作 - [ ]
 3. 修改文件内指定部分 - [ ]
@@ -49,3 +50,5 @@ That is a tool that allows us to easily modify Markdown files in bulk
 版本号 | 版本说明 | 修改日期
 -----|--------| ---------
 v0.1 | 完成规范化front matter | 2019/ 4/ 16
+v0.2 | 完成读取front matter，删除front matter | 2019/ 06/ 06
+
